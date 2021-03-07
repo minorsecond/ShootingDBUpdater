@@ -26,7 +26,6 @@ with requests.Session() as s:
         if row_counter >= 1:
             id = int(row[0])
             if id not in id_list:
-                input(id)
 
                 if row[1] == '':
                     name = None
