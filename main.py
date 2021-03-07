@@ -12,7 +12,7 @@ existing_data = session.query(models.Shooting.id).all()
 
 id_list = []
 for row in existing_data:
-    id_list.append(row)
+    id_list.append(int(row[0]))
 
 added_counter = 0
 with requests.Session() as s:
@@ -24,8 +24,9 @@ with requests.Session() as s:
     csv_list = list(cr)
     for row in csv_list:
         if row_counter >= 1:
-            id = row[0]
+            id = int(row[0])
             if id not in id_list:
+                input(id)
 
                 if row[1] == '':
                     name = None
